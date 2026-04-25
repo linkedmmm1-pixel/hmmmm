@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>لمريومة قلبي❤️</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  font-family: Arial;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* Game container */
+#game {
+  display: block;
+}
+
+h2 {
+  color: white;
+}
+
+/* Hearts buttons */
+.heart-btn {
+  font-size: 40px;
+  margin: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.heart-btn:hover {
+  transform: scale(1.3);
+}
+
+/* Message */
+#messageBox {
+  display: none;
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: scale(0.8);}
+  to {opacity: 1; transform: scale(1);}
+}
+
+/* Hearts animation */
+.heart {
+  position: absolute;
+  color: red;
+  animation: float 4s linear infinite;
+}
+
+@keyframes float {
+  0% {transform: translateY(0);}
+  100% {transform: translateY(-100vh);}
+}
+</style>
+
+</head>
+
+<body>
+
+<div id="game">
+  <h2>اختاري القلب الصح ياقلب معاذ❤️</h2>
+  <div>
+    <span class="heart-btn" onclick="check(1)">💔</span>
+    <span class="heart-btn" onclick="check(2)">❤️</span>
+    <span class="heart-btn" onclick="check(3)">💖</span>
+  </div>
+</div>
+
+<div id="messageBox">
+  <h1>Surprise ❤️</h1>
+  <p>جود جيرل خاااالص 🌚❤️❤️</p
+  <p>ممكن اكون مش قريب منك دلوقتي , بس انتي عايشه جوا قلبي</p>
+  <p>بحبك ياحتة مني وكل حياتي وهقولهالك في الحقيقه قريب🫦😘</p>
+</div>
+
+<script>
+function check(choice) {
+  if (choice === 2) {
+    // correct
+    document.getElementById("game").style.display = "none";
+    document.getElementById("messageBox").style.display = "block";
+
+    // hearts rain
+    setInterval(() => {
+      let heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 4000);
+    }, 300);
+
+  } else {
+    alert("امممم جربي تاني كدا يامزه");
+  }
+}
+</script>
+
+</body>
+</html>
